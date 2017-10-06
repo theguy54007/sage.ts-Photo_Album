@@ -1,6 +1,27 @@
-<%= @photo.title %>
-<%= @photo.date %>
-<%= image_tag @photo.file_location.url, size: "140x140", class: "img-thumbnail" %> />
-<%= simple_format(@photo.description) %>
+<div class="container">
+  <table>
+    <tr>
+      <th><h2 align= "center"><strong><%= @photo.title %></strong></h2></th>
+    </tr>
+    <tr>
+      <td><%= @photo.date %></td>
+    </tr>
+    <tr>
+    <td><%= image_tag @photo.file_location.url, size: "100%", class: "img-thumbnail" %></td>
+    </tr>
+    <tr>
+      <th><h3>Description</h3></th>
+    </tr>
+    <tr>
+      <td class="active"><%= simple_format(@photo.description) %></td>
+    </tr>
+    <tr>
+      <td>
+        <%= link_to 'Edit', edit_photo_path, class: "btn btn-success"%>
+        <%= link_to 'Destroy', photo_path, class: "btn btn-danger", method: :delete, data:{confirm: "Are you sure?"} %>
+        <%= link_to 'Back to index', photos_path, class: "btn btn-info" %>
+      </td>
+    </tr>
 
-<%= link_to 'Back to index', photos_path %>
+  </table>
+</div>
